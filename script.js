@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const checkboxes = document.querySelectorAll('.task-item input[type="checkbox"]');
+    const checkboxes = document.querySelectorAll('.habit-checkbox input[type="checkbox"]');
 
-    // Charger la progression sauvegardée
+    // Charger les habitudes sauvegardées dans le navigateur
     checkboxes.forEach((checkbox, index) => {
-        const isChecked = localStorage.getItem(`glowup_task_${index}`) === 'true';
+        const isChecked = localStorage.getItem(`glowup_habit_v2_${index}`) === 'true';
         checkbox.checked = isChecked;
     });
 
-    // Écouter les clics pour sauvegarder instantanément
+    // Sauvegarder automatiquement lors du clic
     checkboxes.forEach((checkbox, index) => {
         checkbox.addEventListener('change', () => {
-            localStorage.setItem(`glowup_task_${index}`, checkbox.checked);
+            localStorage.setItem(`glowup_habit_v2_${index}`, checkbox.checked);
         });
     });
 });
